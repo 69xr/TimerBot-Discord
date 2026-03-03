@@ -72,7 +72,7 @@ class FocusBeast(commands.Bot):
                 log.error(f"❌ Failed guild sync {guild.name}: {e}")
 
 
-TOKEN = "MTQyNzY5MDA1MzEyMzE3ODU1OA.Gq55Wg.rlTa0NiFSq_0W1Y_uPVS9U3BbFH4lO4N4nTQuA "
+TOKEN = ""
 if __name__ == "__main__":
     bot = FocusBeast()
     bot.run(TOKEN, log_handler=None)
