@@ -20,7 +20,6 @@ from cogs.shop import ShopCog
 from cogs.pets import PetsCog
 from cogs.profile import ProfileCog
 
-# ── Logging ────────────────────────────────────────────────────────────────────
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
@@ -28,14 +27,13 @@ logging.basicConfig(
 )
 log = logging.getLogger("FocusBeast")
 
-# ── Bot ────────────────────────────────────────────────────────────────────────
+
 class FocusBeast(commands.Bot):
     def __init__(self):
         intents = discord.Intents.default()
         intents.voice_states = True
         intents.members = True
         super().__init__(command_prefix="!", intents=intents, help_command=None)
-
         self.db = Database("data/focusbeast.db")
         self.image_engine = ImageEngine()
 
@@ -43,18 +41,15 @@ class FocusBeast(commands.Bot):
         Path("data").mkdir(exist_ok=True)
         await self.db.init()
 
+        # Load cogs — registers all slash commands into the tree
         await self.add_cog(TimerCog(self))
         await self.add_cog(ShopCog(self))
         await self.add_cog(PetsCog(self))
         await self.add_cog(ProfileCog(self))
 
-        # Clear old commands
-        self.tree.clear_commands(guild=None)
-        await self.tree.sync()
-        log.info("🧹 Cleared old global slash commands")
-        
-        # Set flag for guild sync in on_ready
-        self._pending_guild_sync = True
+        # Verify commands loaded
+        cmds = [c.name for c in self.tree.get_commands()]
+        log.info(f"📋 Commands in tree: {cmds}")
 
     async def on_ready(self):
         log.info(f"🚀 FocusBeast online as {self.user} ({self.user.id})")
@@ -65,30 +60,19 @@ class FocusBeast(commands.Bot):
             )
         )
 
-        if getattr(self, "_pending_guild_sync", False):
-            self._pending_guild_sync = False
-
-            # Sync globally (takes ~1hr to propagate)
-            await self.tree.sync()
-            log.info("✅ Global slash commands synced (up to 1hr to show everywhere)")
-
-            # Sync to all guilds for instant availability
-            synced_guilds = 0
-            for guild in self.guilds:
-                try:
-                    # Copy global commands to this guild
-                    self.tree.copy_global_to(guild=guild)
-                    await self.tree.sync(guild=guild)
-                    synced_guilds += 1
-                    log.info(f"✅ Synced commands to guild: {guild.name} ({guild.id})")
-                except Exception as e:
-                    log.warning(f"Could not sync to guild {guild.id}: {e}")
-
-            log.info(f"⚡ Instantly synced to {synced_guilds} guild(s) — commands available NOW")
+        # Guild-scoped sync = instant registration, no 1hr wait
+        for guild in self.guilds:
+            try:
+                self.tree.copy_global_to(guild=guild)
+                synced = await self.tree.sync(guild=guild)
+                log.info(f"✅ Synced {len(synced)} commands to: {guild.name} ({guild.id})")
+                for cmd in synced:
+                    log.info(f"   /{cmd.name}")
+            except Exception as e:
+                log.error(f"❌ Failed guild sync {guild.name}: {e}")
 
 
-TOKEN = "MTQyNzY5MDA1MzEyMzE3ODU1OA.Gq55Wg.rlTa0NiFSq_0W1Y_uPVS9U3BbFH4lO4N4nTQuA"
-
+TOKEN = "MTQyNzY5MDA1MzEyMzE3ODU1OA.Gq55Wg.rlTa0NiFSq_0W1Y_uPVS9U3BbFH4lO4N4nTQuA "
 if __name__ == "__main__":
     bot = FocusBeast()
     bot.run(TOKEN, log_handler=None)
