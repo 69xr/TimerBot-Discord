@@ -1,0 +1,100 @@
+02:26:05 [WARNING] discord.ext.commands.bot: Privileged message content intent is missing, commands may not work as expected.
+02:26:05 [INFO] discord.client: logging in using static token
+02:26:06 [INFO] DB: Database ready
+02:26:06 [INFO] FocusBeast: Loaded cog: TimerCog
+02:26:06 [INFO] FocusBeast: Loaded cog: ShopCog
+02:26:06 [INFO] FocusBeast: Loaded cog: PetsCog
+02:26:06 [INFO] FocusBeast: Loaded cog: ProfileCog
+02:26:06 [INFO] FocusBeast: Loaded cog: SettingsCog
+02:26:06 [INFO] FocusBeast: Loaded cog: AdminCog
+02:26:06 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 391a8d1bf513d6531e00bcb992d9aaef).
+02:26:08 [INFO] FocusBeast: Logged in as Severus#8823 (ID: 1470394602774335672)
+02:26:08 [INFO] FocusBeast: Connected to 2 guild(s)
+02:26:09 [INFO] FocusBeast: Synced 16 commands → Cave
+02:26:09 [INFO] FocusBeast: Synced 16 commands → Chaos Corner
+02:27:05 [INFO] Timer: نور الايمان left Group Study (5 remaining)
+02:27:05 [INFO] Timer: نور الايمان joined Group Study — tracking
+02:27:30 [INFO] Timer: [Group Study] min=1 +10xp +5c → 5
+02:28:27 [INFO] Timer: [Group Study] min=2 +10xp +5c → 5
+02:29:29 [INFO] Timer: [Group Study] min=3 +10xp +5c → 5
+02:29:44 [INFO] Timer: Youssef left Group Study (5 remaining)
+02:29:44 [INFO] Timer: Youssef joined Group Study — tracking
+02:30:31 [INFO] Timer: [Group Study] min=4 +10xp +5c → 5
+02:31:28 [INFO] Timer: [Group Study] min=5 +10xp +5c → 5
+02:31:47 [INFO] Timer: AX3 joined Group Study — tracking
+02:32:30 [INFO] Timer: [Group Study] min=6 +10xp +5c → 6
+02:33:31 [INFO] Timer: [Group Study] min=7 +10xp +5c → 6
+02:34:29 [INFO] Timer: [Group Study] min=8 +10xp +5c → 6
+02:34:53 [INFO] Timer: Youssef left Group Study (6 remaining)
+02:34:53 [INFO] Timer: Youssef joined Group Study — tracking
+02:35:31 [INFO] Timer: [Group Study] min=9 +10xp +5c → 6
+02:36:28 [INFO] Timer: [Group Study] min=10 +10xp +5c → 6
+02:37:30 [INFO] Timer: [Group Study] min=11 +10xp +5c → 6
+02:38:32 [INFO] Timer: [Group Study] min=12 +10xp +5c → 6
+02:38:51 [INFO] Timer: isomar left Group Study (5 remaining)
+02:39:29 [INFO] Timer: [Group Study] min=13 +10xp +5c → 5
+02:40:24 [INFO] Timer: Youssef left Group Study (5 remaining)
+02:40:24 [INFO] Timer: Youssef joined Group Study — tracking
+02:40:31 [INFO] Timer: [Group Study] min=14 +10xp +5c → 5
+02:41:33 [INFO] Timer: [Group Study] min=15 +10xp +5c → 5
+02:41:59 [WARNING] Timer: Edit failed: 401 Unauthorized (error code: 50027): Invalid Webhook Token
+02:41:59 [ERROR] asyncio: Task exception was never retrieved
+future: <Task finished name='Task-13' coro=<TimerCog._run() done, defined at c:\Users\Administrator\Downloads\focusbeast_v5\cogs\timer.py:272> exception=HTTPException('401 Unauthorized (error code: 50027): Invalid Webhook Token')>
+Traceback (most recent call last):
+  File "c:\Users\Administrator\Downloads\focusbeast_v5\cogs\timer.py", line 403, in _run
+    await msg.edit(embed=embed, attachments=[file], view=None)
+  File "C:\Python314\Lib\site-packages\discord\interactions.py", line 1530, in edit
+    res = await self._state._interaction.edit_original_response(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Python314\Lib\site-packages\discord\interactions.py", line 569, in edit_original_response
+    data = await adapter.edit_original_interaction_response(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+    )
+    ^
+  File "C:\Python314\Lib\site-packages\discord\webhook\async_.py", line 226, in request
+    raise HTTPException(response, data)
+discord.errors.HTTPException: 401 Unauthorized (error code: 50027): Invalid Webhook Token
+03:14:42 [INFO] Settings: Settings saved for guild 1475573871284588595: {'guild_id': 1475573871284588595, 'xp_per_min': 1, 'coins_per_min': 1, 'max_session_min': 720, 'min_vc_members': 1, 'bonus_multiplier': 1.0, 'allowed_role_id': 0, 'log_channel_id': 0}
+03:24:47 [INFO] Timer: نور الايمان left Group Study (5 remaining)
+03:24:47 [INFO] Timer: نور الايمان joined Group Study — tracking
+03:25:19 [INFO] Timer: [Group Study] min=1 +1xp +1c → 5
+03:26:17 [INFO] Timer: [Group Study] min=2 +1xp +1c → 5
+03:26:41 [INFO] Timer: Dibra left Group Study (5 remaining)
+03:26:41 [INFO] Timer: Dibra joined Group Study — tracking
+03:26:49 [INFO] Timer: Dibra left Group Study (5 remaining)
+03:26:49 [INFO] Timer: Dibra joined Group Study — tracking
+03:27:20 [INFO] Timer: [Group Study] min=3 +1xp +1c → 5
+03:27:27 [INFO] Timer: Dibra left Group Study (5 remaining)
+03:27:27 [INFO] Timer: Dibra joined Group Study — tracking
+03:27:28 [INFO] Timer: Dibra left Group Study (5 remaining)
+03:27:28 [INFO] Timer: Dibra joined Group Study — tracking
+03:27:30 [INFO] Timer: Youssef left Group Study (4 remaining)
+03:28:17 [INFO] Timer: [Group Study] min=4 +1xp +1c → 4
+03:28:19 [INFO] Timer: Nour left Group Study (4 remaining)
+03:28:19 [INFO] Timer: Nour joined Group Study — tracking
+03:28:27 [INFO] Timer: Nour left Group Study (4 remaining)
+03:28:27 [INFO] Timer: Nour joined Group Study — tracking
+03:28:48 [INFO] Timer: Youssef left Deep Focus (0 remaining)
+03:28:48 [INFO] Timer: Deep Focus empty — auto-stopping timer
+03:28:48 [INFO] Timer: Youssef joined Group Study — tracking
+03:29:18 [INFO] Timer: [Group Study] min=5 +1xp +1c → 5
+03:29:58 [INFO] FocusBeast: Shutting down gracefully…
+03:30:03 [WARNING] discord.ext.commands.bot: Privileged message content intent is missing, commands may not work as expected.
+03:30:03 [INFO] discord.client: logging in using static token
+03:30:03 [INFO] DB: Database ready
+03:30:03 [INFO] FocusBeast: Loaded cog: TimerCog
+03:30:03 [INFO] FocusBeast: Loaded cog: ShopCog
+03:30:03 [INFO] FocusBeast: Loaded cog: PetsCog
+03:30:03 [INFO] FocusBeast: Loaded cog: ProfileCog
+03:30:03 [INFO] FocusBeast: Loaded cog: SettingsCog
+03:30:03 [INFO] FocusBeast: Loaded cog: AdminCog
+03:30:04 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 0136770c10cd354feb8ff0d79f41b5b2).
+03:30:06 [INFO] FocusBeast: Logged in as Severus#8823 (ID: 1470394602774335672)
+03:30:06 [INFO] FocusBeast: Connected to 2 guild(s)
+03:30:06 [INFO] FocusBeast: Synced 16 commands → Cave
+03:30:07 [INFO] FocusBeast: Synced 16 commands → Chaos Corner
+03:44:17 [INFO] FocusBeast: Shutting down gracefully…
