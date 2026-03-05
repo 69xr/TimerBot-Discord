@@ -123,6 +123,13 @@ class AdminCog(commands.Cog):
         )
         log.warning(f"[{i.guild.name}] XP blocked {user} — {reason} — by {i.user}")
 
+    @admin.command(name="ping",
+                   description="Check if the bot is responsive")
+    async def ping(self, i: discord.Interaction):
+        await i.response.send_message("Pong! "+str(self.bot.latency*1000)+"ms", ephemeral=True)
+
+    
+
     @admin.command(name="xpunblock",
                    description="Remove XP block from a user")
     @app_commands.describe(user="The member to unblock")

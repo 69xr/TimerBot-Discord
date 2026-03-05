@@ -104,7 +104,7 @@ class TimerCog(commands.Cog):
     @app_commands.describe(
         duration="Session length in minutes (5–720)",
         theme="Visual theme for the timer image",
-        break_time="Break length after session (10–55 min)",
+        break_time="Break length after session (5–55 min)",
     )
     @app_commands.choices(theme=THEME_CHOICES)
     @app_commands.checks.cooldown(1, 10, key=lambda i: i.user.id)  # 1 per 10s per user
